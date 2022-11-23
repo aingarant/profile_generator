@@ -5,43 +5,62 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-let answers = [];
+let answers = {};
 
 const questions = [
-  { q: "What's your name? Nicknames are also acceptable :)" },
-  { q: "What's an activity you like doing?" },
-  { q: "What do you listen to while doing that?" },
-  { q: "Which meal is your favourite (eg: dinner, brunch, etc.)" },
-  { q: "What's your favourite thing to eat for that meal?" },
-  { q: "Which sport is your absolute favourite?" },
   {
+    id: 1,
+    q: "What's your name? Nicknames are also acceptable :)"
+  },
+  {
+    id: 2,
+    q: "What's an activity you like doing?"
+  },
+  {
+    id: 3,
+    q: "What do you listen to while doing that?"
+  },
+  {
+    id: 4,
+    q: "Which meal is your favourite (eg: dinner, brunch, etc.)"
+  },
+  {
+    id: 5,
+    q: "What's your favourite thing to eat for that meal?"
+  },
+  {
+    id: 6,
+    q: "Which sport is your absolute favourite?"
+  },
+  {
+    id: 7,
     q: "What is your superpower? In a few words, tell us what you are },amazing at!",
   },
 ];
 
 rl.question("What's your name? Nicknames are also acceptable :) ", (answer) => {
-  answers.push(answer);
+  answers['1'] = answer;
 
   rl.question("What's an activity you like doing? ", (answer) => {
-    answers.push(answer);
+    answers['2'] = answer;
 
     rl.question("What do you listen to while doing that? ", (answer) => {
-      answers.push(answer);
+      answers['3'] = answer;
 
       rl.question("Which meal is your favourite (eg: dinner, brunch, etc.) ", (answer) => {
-        answers.push(answer);
+        answers['4'] = answer;
 
         rl.question("What's your favourite thing to eat for that meal? ", (answer) => {
-          answers.push(answer);
+          answers['5'] = answer;
 
           rl.question("Which sport is your absolute favourite? ", (answer) => {
-            answers.push(answer);
+            answers['6'] = answer;
 
             rl.question("What is your superpower? In a few words, tell us what you are },amazing at! ", (answer) => {
-              answers.push(answer);
+              answers['7'] = answer;
 
               rl.close();
-              console.log(answers);
+              console.log(`Your name is: ${answers['1']}. You like to ${answers['2']}. You listen to ${answers['3']} while ${answers['2']}. You like to ${answers['5']} when eating your ${answers['4']}. Your absolute favourite sport is ${answers['6']}, and your super power is ${answers['7']}`);
             });
           });
         });
